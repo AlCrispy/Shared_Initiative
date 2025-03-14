@@ -1,7 +1,17 @@
-<mat-card class="carousel-card" *ngFor="let card of cards">
-  <img mat-card-image ngSrc="{{ card.image }}" alt="Card" fill>
-  <mat-card-content>
-    <h3>{{ card.title }}</h3>
-    <p>{{ card.description }}</p>
-  </mat-card-content>
-</mat-card>
+<div class="page-container">
+  <!-- Title -->
+  <h1>Turn-Based Initiative Order</h1>
+
+  <button mat-raised-button color="accent" (click)="openCardForm()">Add New Card</button>
+
+  <div class="card-container">
+    <mat-card *ngFor="let card of characters; let i = index" [@removeCard] (click)="moveToEnd(i)" [ngClass]="card.type">
+      <img mat-card-image ngSrc="{{ card.image }}" alt="Card" fill>
+      <mat-card-content>
+        <h3>{{ card.name }}</h3>
+        <p>Armor Class: {{ card.ac }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <p class="instruction">Click on a card to move it to the end of the initiative order.</p>
+</div>

@@ -1,0 +1,43 @@
+<h2>Add a New Card</h2>
+
+<form (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="newCharacter.name" name="title" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>initiative</mat-label>
+    <textarea matInput [(ngModel)]="newCharacter.initiative" name="initiative"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Armor Class</mat-label>
+    <input matInput type="number" [(ngModel)]="newCharacter.ac" name="Armor" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Type</mat-label>
+    <mat-select [(ngModel)]="newCharacter.type" name="type">
+      <mat-option value="ally">Ally</mat-option>
+      <mat-option value="hero">Hero</mat-option>
+      <mat-option value="enemy">Enemy</mat-option>
+      <mat-option value="boss">Boss</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Image</mat-label>
+    <mat-select [(ngModel)]="newCharacter.image" name="type">
+      <mat-option value="ally">Ally</mat-option>
+      <mat-option value="hero">Hero</mat-option>
+      <mat-option value="enemy">Enemy</mat-option>
+      <mat-option value="boss">Boss</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Add Card</button>
+  </div>
+</form>
