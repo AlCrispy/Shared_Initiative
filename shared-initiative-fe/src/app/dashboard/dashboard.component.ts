@@ -16,7 +16,6 @@ export class DashboardComponent {
     { image: 'assets/images/dd2.jpg' },
     { image: 'assets/images/dd3.jpg' },
     { image: 'assets/images/dd4.jpg' },
-
   ];
 
   getSlideStyle(index: number) {
