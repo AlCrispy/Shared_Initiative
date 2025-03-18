@@ -1,3 +1,4 @@
 node_modules
+.vscode
 shared-initiative-be/node_modules
 shared-initiative-fe/node_modules
