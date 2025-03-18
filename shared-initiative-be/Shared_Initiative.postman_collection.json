@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "3b5ff954-bad6-4f74-880c-236af966cafb",
+		"name": "Shared_Initiative",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19422212"
+	},
+	"item": [
+		{
+			"name": "postSessions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"characters\": [\r\n    {\r\n        \"name\": \"x\",\r\n        \"i_mod\": 2,\r\n        \"initiative\": 2,\r\n        \"ca\": 2,\r\n        \"type\": \"x\",\r\n        \"image\":\"x\"\r\n    }\r\n ], \r\n\"roundOfCombat\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSessions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions/86c9f714-30e6-4d13-b90d-7aedf66bbd09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"86c9f714-30e6-4d13-b90d-7aedf66bbd09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSessions",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions/86c9f714-30e6-4d13-b90d-7aedf66bbd09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"86c9f714-30e6-4d13-b90d-7aedf66bbd09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putSessions",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions/86c9f714-30e6-4d13-b90d-7aedf66bbd09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"86c9f714-30e6-4d13-b90d-7aedf66bbd09"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
