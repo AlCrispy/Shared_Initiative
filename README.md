@@ -24,7 +24,7 @@ Make sure you have the following installed:
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/dnd-initiative-tracker.git
+   git clone https://github.com/your-username/Shared_initiative.git
    cd dnd-initiative-tracker
    ```
 2. Install dependencies:
@@ -33,8 +33,7 @@ Make sure you have the following installed:
    ```
 3. Start the backend server:
    ```sh
-   cd backend
-   node server.js
+   node shared-initiative-be/server.js
    ```
 4. Start the Angular frontend:
    ```sh
