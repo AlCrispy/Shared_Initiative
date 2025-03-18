@@ -4,6 +4,8 @@ import {MatFormField} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatOption} from '@angular/material/core';
 import {MatSelect} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-character-form',
@@ -11,7 +13,9 @@ import {MatSelect} from '@angular/material/select';
     MatFormField,
     FormsModule,
     MatOption,
-    MatSelect
+    MatSelect,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   templateUrl: './character-form.component.html',
   standalone: true,

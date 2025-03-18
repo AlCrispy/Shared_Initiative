@@ -1,0 +1,51 @@
+<div class="wrapper" [ngClass]="{ 'activate': isActivate }">
+  <span class="bg-animate"></span>
+  <span class="bg-animate2"></span>
+  <div class="form-box login">
+    <h2 class="animation" style="--i:0; --j:21">Login</h2>
+    <form action="#">
+      <div class="input-box animation" style="--i:1; --j:22">
+        <input type="text" [(ngModel)]="username" name="username" required autocomplete="off">
+        <label>Username</label>
+      </div>
+      <div class="input-box animation" style="--i:2; --j:23">
+        <input type="password" [(ngModel)]="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <button type="button" class="btn animation" style="--i:3; --j:24" (click)="onLoginClick()">Login</button>
+      <div class="logger-link animation" style="--i:4; --j:25">
+        <p>Don't have an account? <a href="#"
+                                     class="register-link" (click)="onLoginLinkClick($event)">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+  <div class="info-text login">
+    <p class="animation fantasy" style="--i:1; --j:20">L'oscurità avanza, ma il coraggio non ha limiti. Entra, avventuriero</p>
+  </div>
+
+  <div class="form-box register">
+    <h2 class="animation" style="--i:17; --j:0">Sign up</h2>
+    <form action="#">
+      <div class="input-box animation" style="--i:18; --j:1">
+        <input type="text" required autocomplete="off">
+        <label>Username</label>
+      </div>
+      <div class="input-box animation" style="--i:19; --j:2">
+        <input type="text" required autocomplete="off">
+        <label>Email</label>
+      </div>
+      <div class="input-box animation" style="--i:20; --j:3">
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+      <button type="button" class="btn animation" style="--i:21; --j:4">Sign up</button>
+      <div class="logger-link animation" style="--i:22; --j:5">
+        <p>Already have an account? <a href="#"
+                                       class="login-link" (click)="onRegisterLinkClick($event)">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+  <div class="info-text register">
+    <p class="animation fantasy" style="--i:18; --j:0">Benvenuto, avventuriero. La tua storia inizia ora.</p>
+  </div>
+</div>

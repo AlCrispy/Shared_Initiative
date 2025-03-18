@@ -1,0 +1,11 @@
+<div class="slider">
+  <div class="slider-wrap">
+    <div id="intro-slider">
+      <div *ngFor="let card of cards; let i = index" class="intro-slide" [ngStyle]="getSlideStyle(i)">
+        <div class="slide-overlay"></div>
+        <div class="poster-box" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"></div>
+      </div>
+    </div>
+  </div>
+  <button (click)="moveFirstToLast()">Scorri</button>
+</div>
