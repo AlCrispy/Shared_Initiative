@@ -1,11 +1,29 @@
-<div class="slider">
-  <div class="slider-wrap">
-    <div id="intro-slider">
-      <div *ngFor="let card of cards; let i = index" class="intro-slide" [ngStyle]="getSlideStyle(i)">
-        <div class="slide-overlay"></div>
-        <div class="poster-box" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"></div>
+<div class="container">
+  <app-navi-bar></app-navi-bar>
+  <div class="content">
+    <div class="slider">
+      <div class="slider-wrap">
+        <div id="intro-slider">
+          <div *ngFor="let card of visibleCards; let i = index"
+               class="intro-slide card"
+               [ngClass]="{'first': i === 0}"
+               [ngStyle]="getSlideStyle(i)">
+            <div class="wrapper">
+              <img class="cover-image" [src]="card.cover" alt="">
+            </div>
+            <img class="title" [src]="card.title" alt="">
+            <img class="character" [src]="card.character" alt="">
+          </div>
+        </div>
       </div>
+      <button class="slider-button" (click)="moveFirstToLast()">
+        <span class="material-icons">
+            navigate_next
+        </span>
+      </button>
     </div>
   </div>
-  <button (click)="moveFirstToLast()">Scorri</button>
 </div>
+
+
+

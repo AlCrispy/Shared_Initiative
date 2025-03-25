@@ -1,43 +1,83 @@
-<h2>Add a New Card</h2>
+<h1 mat-dialog-title class="dialog-title">Creazione Personaggio</h1>
 
-<form (ngSubmit)="submit()">
-  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="newCharacter.name" name="title" required>
-  </mat-form-field>
+<div mat-dialog-content class="dialog-content">
+  <form [formGroup]="characterForm">
 
-  <mat-form-field appearance="fill">
-    <mat-label>initiative</mat-label>
-    <textarea matInput [(ngModel)]="newCharacter.initiative" name="initiative"></textarea>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" placeholder="Inserisci nome">
+      <mat-error *ngIf="characterForm.get('name')?.hasError('required')">
+        Il nome è obbligatorio.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Armor Class</mat-label>
-    <input matInput type="number" [(ngModel)]="newCharacter.ac" name="Armor" required>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Iniziativa</mat-label>
+      <input matInput formControlName="initiative" placeholder="Inserisci iniziativa">
+      <mat-error *ngIf="characterForm.get('initiative')?.hasError('required')">
+        L'iniziativa è obbligatoria.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Type</mat-label>
-    <mat-select [(ngModel)]="newCharacter.type" name="type">
-      <mat-option value="ally">Ally</mat-option>
-      <mat-option value="hero">Hero</mat-option>
-      <mat-option value="enemy">Enemy</mat-option>
-      <mat-option value="boss">Boss</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Classe Armatura</mat-label>
+      <input matInput formControlName="armorClass" type="number" placeholder="Inserisci classe armatura">
+      <mat-error *ngIf="characterForm.get('armorClass')?.hasError('required')">
+        La classe armatura è obbligatoria.
+      </mat-error>
+      <mat-error *ngIf="characterForm.get('armorClass')?.hasError('min')">
+        Deve essere almeno 1.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Image</mat-label>
-    <mat-select [(ngModel)]="newCharacter.image" name="type">
-      <mat-option value="ally">Ally</mat-option>
-      <mat-option value="hero">Hero</mat-option>
-      <mat-option value="enemy">Enemy</mat-option>
-      <mat-option value="boss">Boss</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('type')?.hasError('required')">
+        Seleziona un tipo.
+      </mat-error>
+    </mat-form-field>
 
-  <div class="actions">
-    <button mat-button (click)="close()">Cancel</button>
-    <button mat-raised-button color="primary" type="submit">Add Card</button>
-  </div>
-</form>
+    <mat-form-field appearance="outline">
+      <mat-label>Seleziona Immagine di Copertura</mat-label>
+      <mat-select formControlName="imageCover" (selectionChange)="onCoverImageChange($event.value)">
+        <mat-option *ngFor="let key of objectKeys" [value]="images[key].cover">
+          <img [src]="images[key].cover" class="option-img" /> {{ key }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('imageCover')?.hasError('required')">
+        Seleziona un'immagine di copertura.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Anteprima dell'immagine di copertura -->
+    <div *ngIf="selectedCoverImage" class="image-preview">
+      <img [src]="selectedCoverImage" class="preview-img" alt="Anteprima Copertura">
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Seleziona Immagine del Personaggio</mat-label>
+      <mat-select formControlName="imageCharacter" (selectionChange)="onCoverImageChange($event.value)">
+        <mat-option *ngFor="let key of objectKeys" [value]="images[key].character">
+          <img [src]="images[key].character" class="option-img" /> {{ key }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('imageCharacter')?.hasError('required')">
+        Seleziona un'immagine del personaggio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Anteprima dell'immagine del personaggio -->
+    <div *ngIf="selectedCharacterImage" class="image-preview">
+      <img [src]="selectedCharacterImage" class="preview-img" alt="Anteprima Personaggio">
+    </div>
+
+  </form>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCancel()" class="cancel-btn">Annulla</button>
+  <button mat-flat-button [disabled]="characterForm.invalid" (click)="onSubmit()" class="save-btn">Salva</button>
+</div>

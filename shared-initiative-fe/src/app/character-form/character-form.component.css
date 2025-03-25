@@ -1,0 +1,35 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-content {
+  padding: 20px;
+  min-width: 300px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.option-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #3f51b5;
+}
